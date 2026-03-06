@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_shift_template" model="ir.actions.act_window">
+        <field name="name">Vardiya Şablonları</field>
+        <field name="res_model">shift.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Vardiya şablonu oluşturun</p>
+            <p>Sabah, öğle, gece gibi vardiya türlerini tanımlayın.</p>
+        </field>
+    </record>
+
+    <record id="action_shift_schedule" model="ir.actions.act_window">
+        <field name="name">Vardiya Planları</field>
+        <field name="res_model">shift.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Vardiya planı oluşturun</p>
+            <p>Haftalık veya aylık vardiya planlarınızı oluşturun ve çalışan atamaları yapın.</p>
+        </field>
+    </record>
+
+    <record id="action_shift_assignment" model="ir.actions.act_window">
+        <field name="name">Vardiya Atamaları</field>
+        <field name="res_model">shift.assignment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Vardiya ataması oluşturun</p>
+            <p>Çalışanları vardiya planlarına atayın.</p>
+        </field>
+    </record>
+</odoo>

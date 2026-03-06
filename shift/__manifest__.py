@@ -26,6 +26,7 @@ Bu modül Odoo 15 için vardiya planlaması yapar:
         'views/shift_template_views.xml',
         'views/shift_schedule_views.xml',
         'views/shift_assignment_views.xml',
+        'views/shift_actions.xml',
         'views/shift_menu_views.xml',
     ],
     'installable': True,
