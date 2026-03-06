@@ -14,7 +14,7 @@
     <record id="action_shift_schedule" model="ir.actions.act_window">
         <field name="name">Vardiya Planları</field>
         <field name="res_model">shift.schedule</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">calendar,tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Vardiya planı oluşturun</p>
             <p>Haftalık veya aylık vardiya planlarınızı oluşturun ve çalışan atamaları yapın.</p>
@@ -24,7 +24,7 @@
     <record id="action_shift_assignment" model="ir.actions.act_window">
         <field name="name">Vardiya Atamaları</field>
         <field name="res_model">shift.assignment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">calendar,tree,form</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Vardiya ataması oluşturun</p>
             <p>Çalışanları vardiya planlarına atayın.</p>

@@ -14,6 +14,21 @@
         </field>
     </record>
 
+    <record id="view_shift_assignment_calendar" model="ir.ui.view">
+        <field name="name">shift.assignment.calendar</field>
+        <field name="model">shift.assignment</field>
+        <field name="arch" type="xml">
+            <calendar string="Vardiya Atamaları" date_start="date_start" date_stop="date_stop" color="color" mode="week">
+                <field name="display_name"/>
+                <field name="employee_id"/>
+                <field name="template_id"/>
+                <field name="assignment_date"/>
+                <field name="schedule_id"/>
+                <field name="color"/>
+            </calendar>
+        </field>
+    </record>
+
     <record id="view_shift_assignment_form" model="ir.ui.view">
         <field name="name">shift.assignment.form</field>
         <field name="model">shift.assignment</field>

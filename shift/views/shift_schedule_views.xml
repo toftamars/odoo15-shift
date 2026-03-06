@@ -14,6 +14,20 @@
         </field>
     </record>
 
+    <record id="view_shift_schedule_calendar" model="ir.ui.view">
+        <field name="name">shift.schedule.calendar</field>
+        <field name="model">shift.schedule</field>
+        <field name="arch" type="xml">
+            <calendar string="Vardiya Planları" date_start="date_start" date_stop="date_end" mode="month">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="state"/>
+                <field name="analytic_account_id"/>
+            </calendar>
+        </field>
+    </record>
+
     <record id="view_shift_schedule_form" model="ir.ui.view">
         <field name="name">shift.schedule.form</field>
         <field name="model">shift.schedule</field>
