@@ -21,21 +21,9 @@ class ShiftSchedule(models.Model):
         'schedule_id',
         'user_id',
         string='İç Kullanıcılar',
-        help='Analitik hesaba ait iç kullanıcılar - önce analitik hesap seçin'
+        domain="[('share', '=', False)]",
+        help='Analitik hesaba ait iç kullanıcılar - önce analitik hesap seçin. Analitik hesaplarda tanımlı kullanıcıları seçin.'
     )
-    analytic_account_user_ids = fields.Many2many(
-        'res.users',
-        compute='_compute_analytic_account_user_ids',
-        string='Analitik Hesap Kullanıcıları'
-    )
-
-    @api.depends('analytic_account_id', 'analytic_account_id.user_ids')
-    def _compute_analytic_account_user_ids(self):
-        for rec in self:
-            if rec.analytic_account_id and rec.analytic_account_id.user_ids:
-                rec.analytic_account_user_ids = rec.analytic_account_id.user_ids
-            else:
-                rec.analytic_account_user_ids = rec.env['res.users'].search([('share', '=', False)])
     assignment_ids = fields.One2many(
         'shift.assignment',
         'schedule_id',
