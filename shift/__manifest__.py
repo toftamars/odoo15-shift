@@ -23,6 +23,7 @@ Bu modül Odoo 15 için vardiya planlaması yapar:
         'security/shift_security.xml',
         'security/ir.model.access.csv',
         'data/shift_template_data.xml',
+        'views/account_analytic_account_views.xml',
         'views/shift_template_views.xml',
         'views/shift_schedule_views.xml',
         'views/shift_assignment_views.xml',

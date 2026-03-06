@@ -26,9 +26,9 @@ class ShiftAssignment(models.Model):
     template_id = fields.Many2one(
         'shift.template',
         string='Vardiya Şablonu',
-        required=True
+        default=lambda self: self.env['shift.template'].search([('active', '=', True)], limit=1)
     )
-    assignment_date = fields.Date(string='Atama Tarihi', required=True)
+    assignment_date = fields.Date(string='Atama Tarihi')
     analytic_account_id = fields.Many2one(
         'account.analytic.account',
         string='Analitik Hesap',
@@ -58,8 +58,13 @@ class ShiftAssignment(models.Model):
     @api.depends('employee_id', 'template_id', 'assignment_date')
     def _compute_display_name(self):
         for rec in self:
-            if rec.employee_id and rec.template_id:
-                rec.display_name = f"{rec.employee_id.name} - {rec.template_id.name} ({rec.assignment_date})"
+            if rec.employee_id:
+                parts = [rec.employee_id.name]
+                if rec.template_id:
+                    parts.append(rec.template_id.name)
+                if rec.assignment_date:
+                    parts.append(str(rec.assignment_date))
+                rec.display_name = ' - '.join(parts)
             else:
                 rec.display_name = 'Yeni Atama'
 
@@ -86,6 +91,18 @@ class ShiftAssignment(models.Model):
                 rec.date_start = False
                 rec.date_stop = False
 
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get('assignment_date') and vals.get('schedule_id'):
+                schedule = self.env['shift.schedule'].browse(vals['schedule_id'])
+                vals['assignment_date'] = schedule.date_start
+            if not vals.get('template_id'):
+                template = self.env['shift.template'].search([('active', '=', True)], limit=1)
+                if template:
+                    vals['template_id'] = template.id
+        return super().create(vals_list)
+
     @api.onchange('template_id')
     def _onchange_template_analytic(self):
         """Şablondan analitik hesabı taşı"""
@@ -93,7 +110,9 @@ class ShiftAssignment(models.Model):
             self.analytic_account_id = self.template_id.analytic_account_id
 
     @api.onchange('schedule_id')
-    def _onchange_schedule_analytic(self):
-        """Plandan analitik hesabı taşı"""
-        if self.schedule_id and self.schedule_id.analytic_account_id:
-            self.analytic_account_id = self.schedule_id.analytic_account_id
+    def _onchange_schedule_id(self):
+        """Plandan analitik hesabı ve tarihi taşı"""
+        if self.schedule_id:
+            if self.schedule_id.analytic_account_id:
+                self.analytic_account_id = self.schedule_id.analytic_account_id
+            self.assignment_date = self.schedule_id.date_start
