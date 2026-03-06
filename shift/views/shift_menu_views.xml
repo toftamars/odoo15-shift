@@ -21,10 +21,4 @@
               parent="menu_shift_root"
               action="shift.action_shift_schedule"
               sequence="20"/>
-
-    <menuitem id="menu_shift_assignment"
-              name="Vardiya Atamaları"
-              parent="menu_shift_root"
-              action="shift.action_shift_assignment"
-              sequence="30"/>
 </odoo>
