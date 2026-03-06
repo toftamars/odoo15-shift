@@ -4,12 +4,12 @@
         <field name="name">shift.schedule.tree</field>
         <field name="model">shift.schedule</field>
         <field name="arch" type="xml">
-            <tree string="Vardiya Planları" decoration-info="state=='draft'" decoration-success="state=='done'">
+            <tree string="Vardiya Planları">
                 <field name="name"/>
                 <field name="date_start"/>
                 <field name="date_end"/>
                 <field name="analytic_account_id"/>
-                <field name="state" widget="badge" decoration-info="state=='draft'" decoration-success="state=='done'"/>
+                <field name="state" widget="badge"/>
             </tree>
         </field>
     </record>
@@ -35,9 +35,9 @@
             <form string="Vardiya Planı">
                 <header>
                     <button name="action_confirm" string="Onayla" type="object" class="btn-primary"
-                            invisible="state != 'draft'" groups="shift.group_shift_manager"/>
+                            attrs="{'invisible': [('state', '!=', 'draft')]}" groups="shift.group_shift_manager"/>
                     <button name="action_done" string="Tamamla" type="object"
-                            invisible="state != 'confirmed'" groups="shift.group_shift_manager"/>
+                            attrs="{'invisible': [('state', '!=', 'confirmed')]}" groups="shift.group_shift_manager"/>
                 </header>
                 <sheet>
                     <group>

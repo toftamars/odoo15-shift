@@ -4,7 +4,7 @@
         <field name="name">shift.template.tree</field>
         <field name="model">shift.template</field>
         <field name="arch" type="xml">
-            <tree string="Vardiya Şablonları" decoration-muted="active==False">
+            <tree string="Vardiya Şablonları">
                 <field name="name"/>
                 <field name="start_time"/>
                 <field name="end_time"/>
