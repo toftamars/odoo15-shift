@@ -44,7 +44,16 @@ class ShiftAssignment(models.Model):
         compute='_compute_calendar_dates',
         store=True
     )
-    color = fields.Integer(related='template_id.color', string='Renk')
+    color = fields.Integer(
+        string='Renk',
+        compute='_compute_color',
+        store=True
+    )
+
+    @api.depends('template_id', 'template_id.color')
+    def _compute_color(self):
+        for rec in self:
+            rec.color = (rec.template_id.color if rec.template_id else 0) or 0
 
     @api.depends('employee_id', 'template_id', 'assignment_date')
     def _compute_display_name(self):

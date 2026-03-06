@@ -9,7 +9,7 @@
                 <field name="start_time"/>
                 <field name="end_time"/>
                 <field name="analytic_account_id"/>
-                <field name="color" widget="color"/>
+                <field name="color"/>
                 <field name="active" invisible="1"/>
             </tree>
         </field>
@@ -27,7 +27,7 @@
                             <field name="start_time" widget="float_time"/>
                             <field name="end_time" widget="float_time"/>
                             <field name="analytic_account_id"/>
-                            <field name="color" widget="color"/>
+                            <field name="color"/>
                             <field name="active"/>
                         </group>
                     </group>

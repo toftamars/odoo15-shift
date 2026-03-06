@@ -16,7 +16,7 @@ class ShiftTemplate(models.Model):
         help='Bu vardiya için maliyet analizi yapılacak analitik hesap'
     )
     active = fields.Boolean(default=True)
-    color = fields.Integer(string='Renk')
+    color = fields.Integer(string='Renk', default=0)
 
     @api.constrains('start_time', 'end_time')
     def _check_times(self):
