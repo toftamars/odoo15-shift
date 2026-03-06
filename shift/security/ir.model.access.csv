@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_shift_template_user,shift.template.user,model_shift_template,group_shift_user,1,0,0,0
-access_shift_template_manager,shift.template.manager,model_shift_template,group_shift_manager,1,1,1,1
-access_shift_schedule_user,shift.schedule.user,model_shift_schedule,group_shift_user,1,1,1,0
-access_shift_schedule_manager,shift.schedule.manager,model_shift_schedule,group_shift_manager,1,1,1,1
-access_shift_assignment_user,shift.assignment.user,model_shift_assignment,group_shift_user,1,1,1,1
-access_shift_assignment_manager,shift.assignment.manager,model_shift_assignment,group_shift_manager,1,1,1,1
+access_shift_template_user,shift.template.user,shift.model_shift_template,shift.group_shift_user,1,0,0,0
+access_shift_template_manager,shift.template.manager,shift.model_shift_template,shift.group_shift_manager,1,1,1,1
+access_shift_schedule_user,shift.schedule.user,shift.model_shift_schedule,shift.group_shift_user,1,1,1,0
+access_shift_schedule_manager,shift.schedule.manager,shift.model_shift_schedule,shift.group_shift_manager,1,1,1,1
+access_shift_assignment_user,shift.assignment.user,shift.model_shift_assignment,shift.group_shift_user,1,1,1,1
+access_shift_assignment_manager,shift.assignment.manager,shift.model_shift_assignment,shift.group_shift_manager,1,1,1,1

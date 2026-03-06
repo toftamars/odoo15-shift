@@ -32,6 +32,16 @@ Odoo 15 için vardiya planlaması modülü. Çalışanların vardiya atamaların
 
 5. "Shift" modülünü arayın ve yükleyin
 
+## GitHub Repo Oluşturma
+
+1. GitHub'da yeni bir repo oluşturun (örn: `shift` veya `odoo15-shift`)
+2. Yerel repoyu bağlayın ve push edin:
+   ```bash
+   git remote add origin https://github.com/KULLANICI_ADI/REPO_ADI.git
+   git branch -M main
+   git push -u origin main
+   ```
+
 ## Cloudpepper Deploy
 
 1. Bu repoyu GitHub'a yükleyin
