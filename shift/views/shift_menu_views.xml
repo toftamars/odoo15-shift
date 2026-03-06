@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_shift_root"
+              name="Vardiya"
+              web_icon="shift,static/description/icon.png"
+              sequence="50"/>
+
+    <menuitem id="menu_shift_config"
+              name="Yapılandırma"
+              parent="menu_shift_root"
+              sequence="10"/>
+
+    <menuitem id="menu_shift_template"
+              name="Vardiya Şablonları"
+              parent="menu_shift_config"
+              action="action_shift_template"
+              sequence="10"/>
+
+    <menuitem id="menu_shift_schedule"
+              name="Vardiya Planları"
+              parent="menu_shift_root"
+              action="action_shift_schedule"
+              sequence="20"/>
+
+    <menuitem id="menu_shift_assignment"
+              name="Vardiya Atamaları"
+              parent="menu_shift_root"
+              action="action_shift_assignment"
+              sequence="30"/>
+
+    <record id="action_shift_template" model="ir.actions.act_window">
+        <field name="name">Vardiya Şablonları</field>
+        <field name="res_model">shift.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Vardiya şablonu oluşturun</p>
+            <p>Sabah, öğle, gece gibi vardiya türlerini tanımlayın.</p>
+        </field>
+    </record>
+
+    <record id="action_shift_schedule" model="ir.actions.act_window">
+        <field name="name">Vardiya Planları</field>
+        <field name="res_model">shift.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Vardiya planı oluşturun</p>
+            <p>Haftalık veya aylık vardiya planlarınızı oluşturun ve çalışan atamaları yapın.</p>
+        </field>
+    </record>
+
+    <record id="action_shift_assignment" model="ir.actions.act_window">
+        <field name="name">Vardiya Atamaları</field>
+        <field name="res_model">shift.assignment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Vardiya ataması oluşturun</p>
+            <p>Çalışanları vardiya planlarına atayın.</p>
+        </field>
+    </record>
+</odoo>

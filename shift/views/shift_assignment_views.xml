@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_shift_assignment_tree" model="ir.ui.view">
+        <field name="name">shift.assignment.tree</field>
+        <field name="model">shift.assignment</field>
+        <field name="arch" type="xml">
+            <tree string="Vardiya Atamaları">
+                <field name="schedule_id"/>
+                <field name="employee_id"/>
+                <field name="template_id"/>
+                <field name="assignment_date"/>
+                <field name="analytic_account_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_shift_assignment_form" model="ir.ui.view">
+        <field name="name">shift.assignment.form</field>
+        <field name="model">shift.assignment</field>
+        <field name="arch" type="xml">
+            <form string="Vardiya Ataması">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="schedule_id"/>
+                            <field name="employee_id"/>
+                            <field name="template_id"/>
+                            <field name="assignment_date"/>
+                            <field name="analytic_account_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

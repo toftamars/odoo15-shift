@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_shift_schedule_tree" model="ir.ui.view">
+        <field name="name">shift.schedule.tree</field>
+        <field name="model">shift.schedule</field>
+        <field name="arch" type="xml">
+            <tree string="Vardiya Planları" decoration-info="state=='draft'" decoration-success="state=='done'">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="analytic_account_id"/>
+                <field name="state" widget="badge" decoration-info="state=='draft'" decoration-success="state=='done'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_shift_schedule_form" model="ir.ui.view">
+        <field name="name">shift.schedule.form</field>
+        <field name="model">shift.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Vardiya Planı">
+                <header>
+                    <button name="action_confirm" string="Onayla" type="object" class="btn-primary"
+                            invisible="state != 'draft'" groups="shift.group_shift_manager"/>
+                    <button name="action_done" string="Tamamla" type="object"
+                            invisible="state != 'confirmed'" groups="shift.group_shift_manager"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="analytic_account_id"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Vardiya Atamaları" name="assignments">
+                            <field name="assignment_ids">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="template_id"/>
+                                    <field name="assignment_date"/>
+                                    <field name="analytic_account_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
